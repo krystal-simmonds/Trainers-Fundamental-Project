@@ -22,4 +22,10 @@ public class ShoesController {
         return this.shoeService.seeAllShoes(); //Read functionality
     }
 
+    @PostMapping("/addShoe")
+    public Shoe addShoe(@RequestBody Shoe shoe){
+        return this.shoeService.addShoe(shoe);
+    }
+
+
 }
