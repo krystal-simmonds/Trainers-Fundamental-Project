@@ -27,5 +27,9 @@ public class ShoesController {
         return this.shoeService.addShoe(shoe);
     }
 
+    @DeleteMapping("/delete/{shoeId}")
+    public Boolean deleteShoe(@PathVariable Long shoeId){
+        return this.shoeService.deleteShoeById(shoeId);
+    }
 
 }
