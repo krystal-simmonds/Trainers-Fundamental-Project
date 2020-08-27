@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Shoe {
     @Id
     @GeneratedValue
-    private Integer shoeId;
+    private Long shoeId;
 
     @Column(unique = true, nullable = false)
     private String shoeName;
@@ -18,7 +18,7 @@ public class Shoe {
     private String shoeBrand;
 
     @Column
-    private Byte shoeSize;
+    private Long shoeSize;
 
     @Column
     private String shoeColour;
@@ -26,17 +26,17 @@ public class Shoe {
     public Shoe(){
     }
 
-    public Shoe(String shoeName, String shoeBrand, Byte shoeSize, String shoeColour) {
+    public Shoe(String shoeName, String shoeBrand, Long shoeSize, String shoeColour) {
         this.shoeName = shoeName;
         this.shoeBrand = shoeBrand;
         this.shoeSize = shoeSize;
         this.shoeColour = shoeColour;
     }
 
-    public Integer getShoeId() {
+    public Long getShoeId() {
         return shoeId;
     }
-    public void setShoeId(Integer shoeId) {
+    public void setShoeId(Long shoeId) {
         this.shoeId = shoeId;
     }
 
@@ -54,10 +54,10 @@ public class Shoe {
         this.shoeBrand = shoeBrand;
     }
 
-    public Byte getShoeSize() {
+    public Long getShoeSize() {
         return shoeSize;
     }
-    public void setShoeSize(Byte shoeSize) {
+    public void setShoeSize(Long shoeSize) {
         this.shoeSize = shoeSize;
     }
 
