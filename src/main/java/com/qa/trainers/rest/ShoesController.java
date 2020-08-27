@@ -37,4 +37,9 @@ public class ShoesController {
         return this.shoeService.findShoeById(shoeId);
     }
 
+    @PutMapping("/updateShoeSize/{shoeId}")
+    public Shoe updateShoeSize(@PathVariable Long shoeId, @RequestBody Shoe shoe){
+        return this.shoeService.updateShoe(shoeId, shoe);
+    }
+
 }
