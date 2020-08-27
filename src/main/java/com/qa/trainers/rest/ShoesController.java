@@ -32,4 +32,9 @@ public class ShoesController {
         return this.shoeService.deleteShoeById(shoeId);
     }
 
+    @GetMapping("/getShoeById/{shoeId}")
+    public Shoe getShoeById(@PathVariable Long shoeId){
+        return this.shoeService.findShoeById(shoeId);
+    }
+
 }
