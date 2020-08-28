@@ -16,7 +16,7 @@ public class BrandController {
         this.brandService = brandService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/getAllBrands")
     public List<Brand> getAllBrands(){
         return this.brandService.seeAllBrands(); //Read functionality
     }
