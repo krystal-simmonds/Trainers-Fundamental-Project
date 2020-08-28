@@ -1,9 +1,8 @@
 package com.qa.trainers.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Brand {
@@ -14,6 +13,9 @@ public class Brand {
 
     @Column(unique = true, nullable = false)
     private String brandName;
+
+    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
+    private List<Shoe> shoes = new ArrayList<>();
 
     public Brand() {
     }
@@ -35,5 +37,13 @@ public class Brand {
     }
     public void setBrandName(String brandName) {
         this.brandName = brandName;
+    }
+
+    public List<Shoe> getShoes() {
+        return shoes;
+    }
+
+    public void setShoes(List<Shoe> shoes) {
+        this.shoes = shoes;
     }
 }

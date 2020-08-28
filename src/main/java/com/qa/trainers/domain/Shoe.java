@@ -1,9 +1,6 @@
 package com.qa.trainers.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Shoe {
@@ -22,6 +19,9 @@ public class Shoe {
 
     @Column
     private String shoeColour;
+
+    @ManyToOne(targetEntity = Brand.class)
+    private Brand brand;
 
     public Shoe(){
     }
