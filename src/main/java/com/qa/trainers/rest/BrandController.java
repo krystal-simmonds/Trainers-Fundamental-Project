@@ -27,7 +27,7 @@ public class BrandController {
         return this.brandService.addBrand(brand);
     }
 
-    @DeleteMapping("/delete/{brandId}")
+    @DeleteMapping("/deleteBrand/{brandId}")
     public Boolean deleteBrand(@PathVariable Long brandId){ // Delete functionality
         return this.brandService.deleteBrandById(brandId);
     }
