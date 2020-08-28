@@ -30,11 +30,11 @@ public class BrandService {
         return this.brandRepo.findById(brandId).orElseThrow(BrandNotFoundException::new); // find brand by ID
     }
 
-    /*public Shoe updateShoe(Long shoeId, Shoe shoe){ // update shoe size
-        Shoe update = findShoeById(shoeId);
-        update.setShoeSize(shoe.getShoeSize());
-        return this.shoeRepo.save(update);
-    }*/
+    public Brand updateBrand(Long brandId, Brand brand){ // update brand name
+        Brand brandUpdate = findBrandById(brandId);
+        brandUpdate.setBrandName(brand.getBrandName());
+        return this.brandRepo.save(brandUpdate);
+    }
 
     public Boolean deleteBrandById(Long brandId){
         if(!this.brandRepo.existsById(brandId)){
