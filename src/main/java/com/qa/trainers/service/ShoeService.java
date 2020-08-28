@@ -20,17 +20,17 @@ public class ShoeService {
 
     public List<Shoe> seeAllShoes(){
         return this.shoeRepo.findAll();
-    }
+    } //show all shoes
 
     public Shoe addShoe(Shoe shoe){
         return this.shoeRepo.save(shoe);
-    }
+    } // add shoe
 
     public Shoe findShoeById(Long shoeId){
-        return this.shoeRepo.findById(shoeId).orElseThrow(ShoeNotFoundException::new);
+        return this.shoeRepo.findById(shoeId).orElseThrow(ShoeNotFoundException::new); // find shoe by ID
     }
 
-    public Shoe updateShoe(Long shoeId, Shoe shoe){
+    public Shoe updateShoe(Long shoeId, Shoe shoe){ // update shoe size
         Shoe update = findShoeById(shoeId);
         update.setShoeSize(shoe.getShoeSize());
         return this.shoeRepo.save(update);
@@ -41,7 +41,7 @@ public class ShoeService {
             throw new ShoeNotFoundException();
         }
         this.shoeRepo.deleteById(shoeId);
-        return this.shoeRepo.existsById(shoeId);
+        return this.shoeRepo.existsById(shoeId); // delete shoe
     }
 
 }
