@@ -1,8 +1,11 @@
 package com.qa.trainers.rest;
 
 import com.qa.trainers.domain.Shoe;
+import com.qa.trainers.dto.ShoeDTO;
 import com.qa.trainers.service.ShoeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,28 +21,30 @@ public class ShoeController {
     }
 
     @GetMapping("/")
-    public List<Shoe> getAllShoes(){
-        return this.shoeService.seeAllShoes(); //Read functionality
-    }
+    public ResponseEntity<List<ShoeDTO>> getAllShoes(){
+        return ResponseEntity.ok(this.shoeService.seeAllShoes());
+    }//Read functionality
 
     @PostMapping("/addShoe")
-    public Shoe addShoe(@RequestBody Shoe shoe){ // Add/create functionality
-        return this.shoeService.addShoe(shoe);
-    }
+    public ResponseEntity<ShoeDTO> addShoe(@RequestBody Shoe shoe){
+        return new ResponseEntity<>(this.shoeService.addShoe(shoe), HttpStatus.CREATED);
+    }// Add/create functionality. Warning message appeared for line 30 saying explicit type argument. ShoeDTO can be replaced with <>
 
     @DeleteMapping("/delete/{shoeId}")
-    public Boolean deleteShoe(@PathVariable Long shoeId){ // Delete functionality
-        return this.shoeService.deleteShoeById(shoeId);
-    }
+    public ResponseEntity<?> deleteShoe(@PathVariable Long shoeId){
+        return this.shoeService.deleteShoeById(shoeId)
+                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+                : ResponseEntity.noContent().build();
+    }// Delete functionality
 
     @GetMapping("/getShoeById/{shoeId}")
-    public Shoe getShoeById(@PathVariable Long shoeId){
-        return this.shoeService.findShoeById(shoeId);
+    public ResponseEntity<ShoeDTO> getShoeById(@PathVariable Long shoeId){
+        return ResponseEntity.ok(this.shoeService.findShoeById(shoeId));
     }
 
     @PutMapping("/updateShoeSize/{shoeId}")
-    public Shoe updateShoeSize(@PathVariable Long shoeId, @RequestBody Shoe shoe){ // Update functionality
-        return this.shoeService.updateShoe(shoeId, shoe);
+    public ResponseEntity<ShoeDTO> updateShoeSize(@PathVariable Long shoeId, @RequestBody Shoe shoe){
+        return ResponseEntity.ok(this.shoeService.updateShoeSize(shoeId, shoe));
     }
 
 }
