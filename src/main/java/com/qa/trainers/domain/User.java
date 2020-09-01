@@ -1,16 +1,30 @@
 package com.qa.trainers.domain;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue
     private Long userId;
 
+    @Column(nullable = false)
     private String fName;
 
+    @Column(nullable = false)
     private String lName;
 
+    @Column(unique = true, nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Shoe> shoes = new ArrayList<>();
 
     public User(){
     }
