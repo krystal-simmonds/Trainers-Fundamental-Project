@@ -12,7 +12,7 @@ public class Shoe {
     private String shoeName;
 
     @Column
-    private String shoeBrand;
+    private String brandName;
 
     @Column
     private Long shoeSize;
@@ -26,9 +26,9 @@ public class Shoe {
     public Shoe(){
     }
 
-    public Shoe(String shoeName, String shoeBrand, Long shoeSize, String shoeColour) {
+    public Shoe(String shoeName, String brandName, Long shoeSize, String shoeColour) {
         this.shoeName = shoeName;
-        this.shoeBrand = shoeBrand;
+        this.brandName = brandName;
         this.shoeSize = shoeSize;
         this.shoeColour = shoeColour;
     }
@@ -47,11 +47,11 @@ public class Shoe {
         this.shoeName = shoeName;
     }
 
-    public String getShoeBrand() {
-        return shoeBrand;
+    public String getBrandName() {
+        return brandName;
     }
-    public void setShoeBrand(String shoeBrand) {
-        this.shoeBrand = shoeBrand;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 
     public Long getShoeSize() {
@@ -67,4 +67,14 @@ public class Shoe {
     public void setShoeColour(String shoeColour) {
         this.shoeColour = shoeColour;
     }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+
 }
