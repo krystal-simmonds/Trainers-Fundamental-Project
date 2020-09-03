@@ -23,7 +23,7 @@ public class ShoeController {
     @GetMapping("/")
     public ResponseEntity<List<ShoeDTO>> getAllShoes(){
         return ResponseEntity.ok(this.shoeService.seeAllShoes());
-    }//Read functionality
+    }//Read functionality. See all shoes
 
     @PostMapping("/addShoe")
     public ResponseEntity<ShoeDTO> addShoe(@RequestBody Shoe shoe){
