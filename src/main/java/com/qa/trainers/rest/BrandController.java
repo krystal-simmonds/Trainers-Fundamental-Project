@@ -23,7 +23,7 @@ public class BrandController {
     @GetMapping("/getAllBrands")
     public ResponseEntity<List<BrandDTO>> getAllBrands(){
         return ResponseEntity.ok(this.brandService.seeAllBrands());
-    } //Read functionality
+    } //Read functionality. See all brands
 
     @PostMapping("/addBrand")
     public ResponseEntity<BrandDTO> addBrand(@RequestBody Brand brand){
@@ -39,6 +39,11 @@ public class BrandController {
     public ResponseEntity<BrandDTO> getBrandById(@PathVariable Long brandId){
         return ResponseEntity.ok(this.brandService.findBrandById(brandId));
     } //get brand by ID
+
+    @GetMapping("/getBrandByName/{brandName}")
+    public ResponseEntity<BrandDTO> getBrandByName(@PathVariable("brandName") String brandName){
+        return ResponseEntity.ok(this.brandService.findByBrandName(brandName));
+    } // get brand by name. spaces in URLs replaced by '+' or '%20'
 
     @PutMapping("/updateBrand/{brandId}")
     public ResponseEntity<BrandDTO> updateBrand(@PathVariable Long brandId, @RequestBody Brand brand){
