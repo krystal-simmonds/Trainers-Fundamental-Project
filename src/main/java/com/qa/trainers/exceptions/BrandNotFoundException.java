@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.persistence.EntityNotFoundException;
 
 
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "A brand with that ID does not exist")
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "A brand with that ID or name does not exist")
 public class BrandNotFoundException extends EntityNotFoundException {
 }
