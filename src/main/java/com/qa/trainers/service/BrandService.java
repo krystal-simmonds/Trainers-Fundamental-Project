@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.naming.NameNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,10 @@ public class BrandService {
     public BrandDTO findBrandById(Long brandId){
         return this.mapToDTO(brandRepo.findById(brandId).orElseThrow(BrandNotFoundException::new));
     } // find brand by ID
+
+    public BrandDTO findByBrandName(String brandName){
+        return this.mapToDTO((Brand) brandRepo.findByBrandName(brandName).orElseThrow(BrandNotFoundException::new));
+    }
 
     public BrandDTO updateBrand(Long brandId, Brand brand){
         Brand brandUpdate = this.brandRepo.findById(brandId).orElseThrow(BrandNotFoundException::new);
