@@ -25,6 +25,10 @@ public class BrandDTO {
         this.brandId = brandId;
     }
 
+    public String getBrandName(){
+        return brandName;
+    }
+
     public void setBrandName(String brandName){
         this.brandName = brandName;
     }
