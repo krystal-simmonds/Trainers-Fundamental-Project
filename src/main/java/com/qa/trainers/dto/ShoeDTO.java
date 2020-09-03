@@ -7,7 +7,6 @@ public class ShoeDTO {
     private Long shoeId;
     private String shoeName;
     private String shoeColour;
-    private String brandName;
     private Long shoeSize;
 
     public ShoeDTO(){
@@ -16,7 +15,6 @@ public class ShoeDTO {
     public ShoeDTO(String shoeName, String shoeColour, String brandName, Long shoeSize){
         this.shoeName = shoeName;
         this.shoeColour = shoeColour;
-        this.brandName = brandName;
         this.shoeSize = shoeSize;
     }
 
@@ -42,14 +40,6 @@ public class ShoeDTO {
 
     public void setShoeColour(String shoeColour) {
         this.shoeColour = shoeColour;
-    }
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
     }
 
     public Long getShoeSize() {
