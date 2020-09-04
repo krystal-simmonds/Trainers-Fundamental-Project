@@ -14,7 +14,7 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y curl git && sudo apt-get install -y openjdk-8-jdk"
       - run:
           name: Deploy Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/IdeaProjects/trainers && mvn verify"
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
 workflows:
   version: 2.1
   test-and-deploy:
