@@ -1,9 +1,28 @@
 version: 2.1
-
-orbs:
-  maven: circleci/maven@0.0.12
-
+jobs:
+  test:
+    machine:
+      enabled: true
+    steps:
+      - run: echo "Test can run here!"
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Install Java & Maven
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y curl git && sudo apt-get install -y openjdk-8-jdk"
+      - run:
+          name: Clone Repository & Install Application Dependencies
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git && cd ~/trainers && sudo apt-get install -y maven"
+      - run:
+          name: Deploy Application
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/trainers && mvn verify"
 workflows:
-  maven_test:
+  version: 2.1
+  test-and-deploy:
     jobs:
-      - maven/test # checkout, build, test, and upload test results
+      - test
+      - deploy:
+          requires:
+            - test
