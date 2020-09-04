@@ -14,10 +14,10 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y curl git && sudo apt-get install -y openjdk-8-jdk"
       - run:
           name: Clone Repository & Install Application Dependencies
-          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git && cd ~/trainers && sudo apt-get install -y maven"
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git && cd ~/IdeaProjects/trainers && sudo apt-get install -y maven"
       - run:
           name: Deploy Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/trainers && mvn verify"
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/IdeaProjects/trainers && mvn verify"
 workflows:
   version: 2.1
   test-and-deploy:
