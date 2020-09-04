@@ -15,9 +15,6 @@ jobs:
       - run:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
-network:
-  forwarded_ports:
-    - 8080/tcp
 workflows:
   version: 2.1
   test-and-deploy:
