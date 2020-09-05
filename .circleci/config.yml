@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify && mvn -Dmaven.test.skip=true spring-boot:run"
+      - run:
+          name: Clone Repository & Install Application Dependencies
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git && cd ~/IdeaProjects/trainers && sudo apt-get install -y maven"
 workflows:
   version: 2.1
   test-and-deploy:
