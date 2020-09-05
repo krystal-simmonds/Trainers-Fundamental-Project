@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  test:
+   test:
     machine:
       enabled: true
     steps:
