@@ -9,14 +9,14 @@ jobs:
     machine:
       enabled: true
   handlers: 
-     - url: /favicon\.ico
+    - url: /favicon\.ico
      upload: favicon\.ico
-     - url: /static
-         static_dir: public
-      - url: /.*
-        secure: always
-        redirect_http_response_code: 301
-        script: auto
+    - url: /static
+        static_dir: public
+     - url: /.*
+       secure: always
+       redirect_http_response_code: 301
+       script: auto
     steps:
       - run:
           name: Install Java & Maven
