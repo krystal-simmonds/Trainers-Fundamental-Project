@@ -14,7 +14,7 @@ jobs:
          upload: favicon\.ico
        - url: /static
          static_dir: public
-   - url: /.*
+       - url: /.*
          secure: always
          redirect_http_response_code: 301
          script: auto
