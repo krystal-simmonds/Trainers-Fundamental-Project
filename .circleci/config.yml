@@ -8,7 +8,7 @@ jobs:
   deploy:
     machine:
       enabled: true
-handlers:
+  handlers:
   - url: /favicon\.ico
     static_files: favicon.ico
     upload: favicon\.ico
