@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name ="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+
+        <!--Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="../js/brands.js"></script>
+
+        <title>Add Brands</title>
+    </head>
+    <body>
+        <!--Bootstrap Nav bar starts-->
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="link-logo" class="navbar-brand">What Are Thooose? Logo Here</a>
+
+            <div class="collapse navbar-collapse" id="navbar-list-2">  
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="brands.html" class="nav-link">View All Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="addbrands.html" class="nav-link">Add Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="addshoes.html" class="nav-link">Add Shoes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="deleteentry.html" class="nav-link">Delete An Entry</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="updateentry.html" class="nav-link">Update An Entry</a>
+                    </li>
+                </ul>
+            </div>  
+        </nav>
+        <!--Bootstrap Navbar ends-->
+
+        <h1>Add brands here</h1>
+
+        <form id="brandsForm">
+            <label for="brandName">Brand Name:</label><br>
+            <input type="text" id="brandName" name="brandName"><br><br>
+
+            <input type="submit" onclick="addBrand()" value="Add New Brand">
+        </form>
+
+
+    </body>
+</html>
