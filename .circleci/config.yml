@@ -25,10 +25,10 @@ jobs:
            - run:
                 name: Clone Repo & Install Application Dependencies
                 command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git && cd ~/Trainers-Fundamental-Project"
-          - run:
+           - run:
                name: Deploy Application
                command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
-          - run: 
+           - run: 
                name: Run Application
                command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && -Dmaven.test.skip=true spring-boot:run"
 workflows:
