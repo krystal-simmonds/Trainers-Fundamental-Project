@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
    test:
-     machine:
+      machine:
           enabled: true
        steps:
         - run: echo "Test can run here!"
