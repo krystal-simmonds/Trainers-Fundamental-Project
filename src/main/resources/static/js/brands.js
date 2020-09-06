@@ -108,7 +108,7 @@ function addShoe(){
     const req = new XMLHttpRequest();
     req.open("POST", "http://localhost:8080/addShoe");
     req.onload = () => {
-        if (req.status === 200 && req.readyState == 4) {
+        if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
         } else {
             console.log("Oops...");
@@ -133,14 +133,14 @@ function updateShoe(){
     //Get data from form and assign key value pairs
     let elements = document.getElementById("updateShoeForm").elements;
     let obj = {};
-    for(let i = 0; i < elements.length - 1; i++){
+    for(let i = 0; i < elements.length; i++){
         let item = elements.item(i);
         obj[item.name] = item.value;
     }
 
     const req = new XMLHttpRequest();
     console.log("http://localhost:8080/updateShoeSize/" + obj.shoeId)
-    req.open("PUT", "http://localhost:8080/updateShoeSize/" + obj.shoeId)
+    req.open("PUT", "http://localhost:8080/updateShoeSize/" + obj.shoeId);
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -149,14 +149,13 @@ function updateShoe(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let myJson = req.send(JSON.stringify(
+    req.send(JSON.stringify(
         {
             shoeSize: obj.shoeSize
         }
 
         )
     );
-    //delete myJson;
 }
 
 function deleteShoe(){
