@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
-	  - run:
+      - run:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"	  
 workflows:
