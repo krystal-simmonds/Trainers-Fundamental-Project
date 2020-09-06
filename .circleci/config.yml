@@ -25,8 +25,8 @@ jobs:
           name: Deploy Application
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
       - run:
-          name: Deploy Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"	  
+          name: Run Application
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn -Dmaven.test.skip=true spring-boot:run"	  
 workflows:
   version: 2.1
   test-and-deploy:
