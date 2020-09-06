@@ -8,6 +8,16 @@ jobs:
   deploy:
     machine:
       enabled: true
+  handlers:
+      - url: /favicon\.ico
+        static_file: favicon.ico
+        upload: favicon\.ico
+      - url: /static
+        static_dir: public
+      - url: /.*
+        secure: always
+        redirect_http_response_code: 301
+        script: auto  
     steps:
       - run:
           name: Install Java
@@ -26,7 +36,8 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
       - run:
           name: Run Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn -Dmaven.test.skip=true spring-boot:run"	  
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn -Dmaven.test.skip=true spring-boot:run"
+          no_output_timeout: 60m	  
 workflows:
   version: 2.1
   test-and-deploy:
