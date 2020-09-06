@@ -1,44 +1,37 @@
 version: 2.1
 jobs:
-    test:
-        machine:
-            enabled: true
-        steps:
-            - run: echo "Test can run here!"
-    deploy:
-        machine:
-            enabled: true
-handlers:
-            - url: /favicon\.ico
-              static_files: favicon.ico
-              upload: favicon\.ico
-            - url: /static
-              static_dir: public
-            - url: /.*
-              secure: always
-              redirect_http_response_code: 301
-              script: auto
-        steps:
-            - run:
-                 name: Install Java & Maven
-                 command: ssh $SSH_USER@SSH_HOST "sudo apt-get update && sudo apt-get install -y curl git && sudo apt-get install -y openjdk-8-jdk && sudo apt-get install -y maven"
-            - run:
-                 name: Clone Repo & Install Application Dependencies
-                 command: ssh $SSH_USER@SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git && cd ~/Trainers-Fundamental-Project"
-            - run:
-                 name: Deploy Application
-                 command: ssh $SSH_USER@SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
-            - run: 
-                 name: Run Application
-                 command: ssh $SSH_USER@SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn -Dmaven.test.skip=true spring-boot:run"       
+  test:
+    machine:
+      enabled: true
+    steps:
+      - run: echo "Test can run here!"
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Install Java
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y curl git && sudo apt-get install -y openjdk-8-jdk"
+      - run:
+          name: Delete Any Old Databases
+          command: ssh $SSH_USER@$SSH_HOST "rm -f trainers.mv.db && rm -r Trainers-Fundamental-Project"  
+      - run:
+          name: Clone Git Repository
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/krystal-simmonds/Trainers-Fundamental-Project.git"   
+      - run:
+          name: Install Maven
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && sudo apt-get install -y maven"
+      - run:
+          name: Deploy Application
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
+	  - run:
+          name: Deploy Application
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"	  
 workflows:
-    version: 2.1
-    test-and-deploy:
-        jobs:
+  version: 2.1
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
             - test
-            - handlers
-            - deploy:
-                requires:
-                    - test
-                    - handlers
-    
