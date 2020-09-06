@@ -18,7 +18,7 @@ jobs:
           secure: always
           redirect_http_response_code: 301
           script: auto
-       steps:
+    steps:
             - run:
                 name: Install Java & Maven
                 command: ssh $SSH_USER@SSH_HOST "sudo apt-get update && sudo apt-get install -y curl git && sudo apt-get install -y openjdk-8-jdk && sudo apt-get install -y maven"
