@@ -3,7 +3,7 @@ jobs:
    test:
      machine:
           enabled: true
-    steps:
+     steps:
         - run: echo "Test can run here!"
    deploy:
       machine:
