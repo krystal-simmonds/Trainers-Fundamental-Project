@@ -65,7 +65,7 @@ function displayBrands(){
             console.log("Oh no... handle error");
         }
     };
-    req.open("GET", "http://35.242.170.152:8080/getAllBrands");
+    req.open("GET", "http://35.234.141.247:8080/getAllBrands");
     req.send();
 }
 
@@ -79,7 +79,7 @@ function addBrand(){
     }
 
     const req = new XMLHttpRequest();
-    req.open("POST", "http://35.242.170.152:8080/addBrand");
+    req.open("POST", "http://35.234.141.247:8080/addBrand");
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -106,7 +106,7 @@ function addShoe(){
     }
 
     const req = new XMLHttpRequest();
-    req.open("POST", "http://35.242.170.152:8080/addShoe");
+    req.open("POST", "http://35.234.141.247:8080/addShoe");
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -139,8 +139,8 @@ function updateShoe(){
     }
 
     const req = new XMLHttpRequest();
-    console.log("http://35.242.170.152:8080/updateShoeSize/" + obj.shoeId)
-    req.open("PUT", "http://35.242.170.152:8080/updateShoeSize/" + obj.shoeId);
+    console.log("http://35.234.141.247:8080/updateShoeSize/" + obj.shoeId)
+    req.open("PUT", "http://35.234.141.247:8080/updateShoeSize/" + obj.shoeId);
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -168,8 +168,8 @@ function deleteShoe(){
     }
 
     const req = new XMLHttpRequest();
-    console.log("http://35.242.170.152:8080/delete/" + Number(obj.shoeId))
-    req.open("DELETE", "http://35.242.170.152:8080/delete/" + Number(obj.shoeId));
+    console.log("http://35.234.141.247:8080/delete/" + Number(obj.shoeId))
+    req.open("DELETE", "http://35.234.141.247:8080/delete/" + Number(obj.shoeId));
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -198,8 +198,8 @@ function deleteBrand(){
     }
 
     const req = new XMLHttpRequest();
-    console.log("http://35.242.170.152:8080/deleteBrand/" + Number(obj.brandId))
-    req.open("DELETE", "http://35.242.170.152:8080/deleteBrand/" + Number(obj.brandId));
+    console.log("http://35.234.141.247:8080/deleteBrand/" + Number(obj.brandId))
+    req.open("DELETE", "http://35.234.141.247:8080/deleteBrand/" + Number(obj.brandId));
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
