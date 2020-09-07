@@ -76,5 +76,4 @@ public class Shoe {
         this.brand = brand;
     }
 
-
 }
