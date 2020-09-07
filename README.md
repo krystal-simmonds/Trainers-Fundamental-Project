@@ -6,7 +6,8 @@
   * ### [Scope](#Scope)
 * ### [My Approach](#Approach)
 * ### [Design](#Design)
-  * ### [Kanban Board](#Architecture)
+  * ### [Kanban Board](#Kanban-Board)
+  * ### [Entity Relationship Diagram](#Entity-Relationship-Diagram)
 * ### [Creation](#Creation)
 
 ## **Brief**
@@ -63,15 +64,12 @@ There is a One-to-Many relationship between the Brand and Shoes entities. This a
 
 To build this project a number of different technologies were used:
 
-### Database
 
-A Google Cloud Platform SQL Server
-
-### Back-end
+### Back end
 
 Spring Boot, which is a Java based framework, was used to build the back-end of the application. Forms created in the Front-end of the application were used to send data to the SQL server to be input into the correct tables. 
 
-### Front-end
+### Front end
 
 The Front-end of the application is basic at this stage and only features standard HTML and a Bootstrap navigation bar. The navigation is the same across all pages. 
 
@@ -93,11 +91,20 @@ All steps in the test job need to be successful before the deployment job starts
 
 ![CI Test Job Steps](images/circle-ci-test-steps.png)
 
-Once all steps in the deployment job pass, the build will complete totally and then the application is pushed to a Google Cloud VM for deployment. (If yaml is fixed, add screenshots for google VM and of application at host)
+Once all steps in the deployment job pass, the build will complete totally and then the application is pushed to a Google Cloud VM for deployment.
 
 ![CI Deploy Job Steps](images/circle-ci-deploy-steps.png)
 
 ### Cloud Server
+
+The service hosting this application is Google Cloud Server. The Virtual Machine (VM) that the application is deployed to has a Debian 9 Linux operating system. The git repository for the application was cloned on to this server, opposed to the repository being stored on GitHub.Below is a screenshot of the application running from the VM. 
+
+![wat-vm-ss](images/wat-on-vm.png)
+
+## **Installation Instructions**
+
+
+
 
 
 
