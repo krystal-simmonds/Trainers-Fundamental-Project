@@ -52,7 +52,7 @@ public class ShoeService {
             throw new ShoeNotFoundException();
         }
         this.shoeRepo.deleteById(shoeId);
-        return this.shoeRepo.existsById(shoeId); // delete shoe
+        return this.shoeRepo.existsById(shoeId);
     } // delete shoe
 
 }
