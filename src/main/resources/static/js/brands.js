@@ -162,7 +162,7 @@ function deleteShoe(){
     //Get data from form and assign key value pairs
     let elements = document.getElementById("deleteShoeForm").elements;
     let obj = {};
-    for(let i = 0; i < elements.length - 1; i++){
+    for(let i = 0; i < elements.length; i++){
         let item = elements.item(i);
         obj[item.name] = item.value;
     }
@@ -178,14 +178,13 @@ function deleteShoe(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let myJson = req.send(JSON.stringify(
+    req.send(JSON.stringify(
         { 
             shoeId: obj.shoeId
         }
 
     )
     );
-    delete myJson;
 }
 
 function deleteBrand(){
