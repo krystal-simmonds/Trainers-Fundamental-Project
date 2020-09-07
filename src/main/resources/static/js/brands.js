@@ -140,7 +140,7 @@ function updateShoe(){
 
     const req = new XMLHttpRequest();
     console.log("http://35.234.141.247:8080/update/" + obj.shoeId)
-    req.open("PUT", "http://35.234.141.247:8080/update/" + obj.shoeId + obj.shoeSize);
+    req.open("PUT", "http://35.234.141.247:8080/update/" + obj.shoeId);
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -162,7 +162,7 @@ function deleteShoe(){
     //Get data from form and assign key value pairs
     let elements = document.getElementById("deleteShoeForm").elements;
     let obj = {};
-    for(let i = 0; i < elements.length - 1; i++){
+    for(let i = 0; i < elements.length; i++){
         let item = elements.item(i);
         obj[item.name] = item.value;
     }
@@ -178,14 +178,7 @@ function deleteShoe(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let myJson = req.send(JSON.stringify(
-        { 
-            shoeId: obj.shoeId
-        }
-
-    )
-    );
-    delete myJson;
+    req.send();
 }
 
 function deleteBrand(){
@@ -208,12 +201,5 @@ function deleteBrand(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let myBrandJson = req.send(JSON.stringify(
-        {
-            brandId: obj.brandId
-        }
-
-        )
-    );
-    delete myBrandJson;
+    req.send();
 }
