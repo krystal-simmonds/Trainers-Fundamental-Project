@@ -65,7 +65,7 @@ function displayBrands(){
             console.log("Oh no... handle error");
         }
     };
-    req.open("GET", "http://localhost:8080/getAllBrands");
+    req.open("GET", "http://35.234.141.247:8080/getAllBrands");
     req.send();
 }
 
@@ -79,7 +79,7 @@ function addBrand(){
     }
 
     const req = new XMLHttpRequest();
-    req.open("POST", "http://localhost:8080/addBrand");
+    req.open("POST", "http://35.234.141.247:8080/addBrand");
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -106,9 +106,9 @@ function addShoe(){
     }
 
     const req = new XMLHttpRequest();
-    req.open("POST", "http://localhost:8080/addShoe");
+    req.open("POST", "http://35.234.141.247:8080/addShoe");
     req.onload = () => {
-        if (req.status === 200 && req.readyState == 4) {
+        if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
         } else {
             console.log("Oops...");
@@ -133,14 +133,14 @@ function updateShoe(){
     //Get data from form and assign key value pairs
     let elements = document.getElementById("updateShoeForm").elements;
     let obj = {};
-    for(let i = 0; i < elements.length - 1; i++){
+    for(let i = 0; i < elements.length; i++){
         let item = elements.item(i);
         obj[item.name] = item.value;
     }
 
     const req = new XMLHttpRequest();
-    console.log("http://localhost:8080/updateShoeSize/" + obj.shoeId)
-    req.open("PUT", "http://localhost:8080/updateShoeSize/" + obj.shoeId)
+    console.log("http://35.234.141.247:8080/update/" + obj.shoeId)
+    req.open("PUT", "http://35.234.141.247:8080/update/" + obj.shoeId + obj.shoeSize);
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -149,14 +149,13 @@ function updateShoe(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let myJson = req.send(JSON.stringify(
+    req.send(JSON.stringify(
         {
             shoeSize: obj.shoeSize
         }
 
         )
     );
-    //delete myJson;
 }
 
 function deleteShoe(){
@@ -169,8 +168,8 @@ function deleteShoe(){
     }
 
     const req = new XMLHttpRequest();
-    console.log("http://localhost:8080/delete/" + Number(obj.shoeId))
-    req.open("DELETE", "http://localhost:8080/delete/" + Number(obj.shoeId));
+    console.log("http://35.234.141.247:8080/delete/" + Number(obj.shoeId))
+    req.open("DELETE", "http://35.234.141.247:8080/delete/" + Number(obj.shoeId));
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -199,8 +198,8 @@ function deleteBrand(){
     }
 
     const req = new XMLHttpRequest();
-    console.log("http://localhost:8080/deleteBrand/" + Number(obj.brandId))
-    req.open("DELETE", "http://localhost:8080/deleteBrand/" + Number(obj.brandId));
+    console.log("http://35.234.141.247:8080/deleteBrand/" + Number(obj.brandId))
+    req.open("DELETE", "http://35.234.141.247:8080/deleteBrand/" + Number(obj.brandId));
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
