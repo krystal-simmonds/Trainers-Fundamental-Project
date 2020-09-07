@@ -140,7 +140,7 @@ function updateShoe(){
 
     const req = new XMLHttpRequest();
     console.log("http://35.234.141.247:8080/update/" + obj.shoeId)
-    req.open("PUT", "http://35.234.141.247:8080/update/" + obj.shoeId + obj.shoeSize);
+    req.open("PUT", "http://35.234.141.247:8080/update/" + obj.shoeId);
     req.onload = () => {
         if (req.status === 200 && req.readyState === 4) {
             console.log("Server Responded with: " + req.responseText);
