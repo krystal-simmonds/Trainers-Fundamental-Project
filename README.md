@@ -101,7 +101,6 @@ The service hosting this application is Google Cloud Server. The Virtual Machine
 
 ![wat-vm-ss](images/wat-on-vm.png)
 
-## **Installation Instructions**
 
 
 
