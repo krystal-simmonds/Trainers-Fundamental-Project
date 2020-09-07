@@ -178,13 +178,7 @@ function deleteShoe(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    req.send(JSON.stringify(
-        { 
-            shoeId: obj.shoeId
-        }
-
-    )
-    );
+    req.send();
 }
 
 function deleteBrand(){
@@ -207,12 +201,5 @@ function deleteBrand(){
         }
     };
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let myBrandJson = req.send(JSON.stringify(
-        {
-            brandId: obj.brandId
-        }
-
-        )
-    );
-    delete myBrandJson;
+    req.send();
 }
