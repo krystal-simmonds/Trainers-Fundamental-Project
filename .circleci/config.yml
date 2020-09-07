@@ -23,11 +23,7 @@ jobs:
           command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && sudo apt-get install -y maven"
       - run:
           name: Deploy Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify"
-      - run:
-          name: Run Application
-          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn -Dmaven.test.skip=true spring-boot:run"
-          no_output_timeout: 60m	  
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/Trainers-Fundamental-Project && mvn verify" 
 workflows:
   version: 2.1
   test-and-deploy:
