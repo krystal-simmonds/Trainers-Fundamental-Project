@@ -151,6 +151,7 @@ function updateShoe(){
     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     req.send(JSON.stringify(
         {
+            shoeId: obj.shoeId,
             shoeSize: obj.shoeSize
         }
 
